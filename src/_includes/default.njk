@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>最新文章</title>
+  <title>{{ title or "LangLang Insight" }}</title>
 
-  <meta name="description" content="用故事讲清宏观经济机制与金融史">
+  <meta name="description" content="{{ description or '用故事讲清宏观经济机制与金融史' }}">
   <link rel="stylesheet" href="/assets/css/theme.css">
   <link rel="icon" href="/assets/favicon.png">
-  <meta property="og:title" content="最新文章">
-  <meta property="og:description" content="用故事讲清宏观经济机制与金融史">
+  <meta property="og:title" content="{{ title or 'LangLang Insight' }}">
+  <meta property="og:description" content="{{ description or '用故事讲清宏观经济机制与金融史' }}">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="/">
+  <meta property="og:url" content="{{ page.url | url }}">
 </head>
 <body>
   <header class="header">
@@ -26,17 +26,8 @@
 
   <main class="container main">
     <article class="card article">
-      <h1>最新文章</h1>
-      <div><div class="list">
-  <a class="post-item" href="/posts/ep4-oil-crisis/">
-    <h3>🎬 EP4｜石油危机与滞涨：当能源价格撬动世界经济</h3>
-    <div class="meta">
-      2025-10-17
-       · 1970年代两次石油危机如何重塑世界格局，并诞生石油美元与东亚奇迹。
-    </div>
-  </a>
-</div>
-</div>
+      {% if title %}<h1>{{ title }}</h1>{% endif %}
+      <div>{{ content | safe }}</div>
     </article>
   </main>
 
